@@ -29,6 +29,7 @@ const SiteContainer: React.FC = ({ children }) => {
     const { editionName } = useParams()
 
     const [edition] = React.useState<EditionName>(editionName || DEFAULT_EDITION)
+
     const [pages, setPages] = React.useState<PageData>()
     const [structure, setStructure] = React.useState<Structure>()
     const [tour, setTour] = React.useState<TourData>()
@@ -36,6 +37,7 @@ const SiteContainer: React.FC = ({ children }) => {
     React.useEffect(() => {
         getMetadata(edition).then((metadata) => {
             const m = metadata.get(edition)
+            // here
             setPages(m?.pages)
             setStructure(m?.structure)
             setTour(m?.tour)
