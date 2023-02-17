@@ -6,7 +6,17 @@ export const getMetadata = async (edition: EditionName): Promise<Metadata> => {
     const tour = await import(`data/${edition}/tour/tour.json`)
     const structure = await import(`data/${edition}/structure.xml`)
     const pages = await import(`data/${edition}/pages.json`)
+    
+    var index = Object.keys(pages).length
+    var randomIndex;
 
+    for(let i=0; i <= index; i++){
+        randomIndex = Math.floor(Math.random() * index);
+        console.log(pages[i])
+        //[pages[index], pageData[randomIndex]] = [md[randomIndex], md[index]];
+        
+    }
+    
     md.set(edition, {
         tour: tour.default,
         structure: getStructure(structure),

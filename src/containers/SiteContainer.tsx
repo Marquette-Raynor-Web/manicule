@@ -10,6 +10,7 @@ import by from 'site-images/by.svg'
 import manic from 'site-images/manicule-white.png'
 
 import { PageData, Structure, TourData, EditionName, DEFAULT_EDITION, getMetadata } from 'metadata'
+import { isIndexSignatureDeclaration } from 'typescript'
 
 interface EditionContextProps {
     edition: EditionName
@@ -37,7 +38,6 @@ const SiteContainer: React.FC = ({ children }) => {
     React.useEffect(() => {
         getMetadata(edition).then((metadata) => {
             const m = metadata.get(edition)
-            // here
             setPages(m?.pages)
             setStructure(m?.structure)
             setTour(m?.tour)
